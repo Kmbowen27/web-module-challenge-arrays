@@ -145,7 +145,7 @@ function removeFlavorByName(array, string){
   return array;
 }
 
-console.log("Task 6:", removeFlavorByName(originalFlavors, "Rocky Road"));
+// console.log("Task 6:", removeFlavorByName(originalFlavors, "Rocky Road"));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -192,11 +192,18 @@ Use the getAverageWordLength function below to do the following:
 */
 
 function getAverageWordLength(array){
+  let wordCount = 0;
   for (let i = 0; i < array.length; i++){
-    
+    for (const letter of array[i])
+      if (letter.includes(' ')){
+        wordCount++;
+      }
+    wordCount++;  
   }
+  return wordCount / array.length;
 }
 
+console.log(getAverageWordLength(originalFlavors));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
@@ -205,7 +212,7 @@ from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors and s
 Use the getRandomFlavors function and new arrays below to do the following:
   1. Receive the four arrays with all the differnet flavors (originalFlavors is above, the others are below)
   2. Randomly pick flavors from all four arrays
-  3. Return a new array called randomFlavors that has a lenght of 31
+  3. Return a new array called randomFlavors that has a length of 31
 
   For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
